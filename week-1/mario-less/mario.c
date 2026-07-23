@@ -1,4 +1,4 @@
-// take user input for the height of an obstacle and then use it to create the stair-type obstacle found in super mario bros
+// take user input for the height of an obstacle and then use it to create the stair-type obstacle found in super mario bros.
 
 #include <stdio.h>
 int main(void){
