@@ -17,16 +17,18 @@ int main(void)
     printf("Input word by player 1:  ");
     fgets(word1, sizeof(word1), stdin);
     rmenter(word1);
+    int score1 = wordscore(word1);
 
     printf("Input word by player 2:  ");
     fgets(word2, sizeof(word2), stdin);
     rmenter(word2);
+    int score2 = wordscore(word2);
 
-    if (wordscore(word1)!= -1 && wordscore(word2)!= -1){
-        if (wordscore(word1) > wordscore(word2)){
+    if (score1 != -1 && score2 != -1){
+        if (score1 > score2){
             printf("Player 1 wins! \n");
         }
-        else if (wordscore(word1) < wordscore(word2)){
+        else if (score1 < score2){
             printf("Player 2 wins!\n");
         }
         else {
@@ -34,10 +36,10 @@ int main(void)
         }
     }
     else {
-        if (wordscore(word1) == -1 && wordscore(word2) != -1){
+        if (score1 == -1 && score2 != -1){
             printf("Player 1 has given an invalid entry, player 2 wins.\n");
         }
-        else if (wordscore(word2) == -1 && wordscore(word1) != -1){
+        else if (score2 == -1 && score1 != -1){
             printf("Player 2 has given an invalid entry, player 1 wins.\n");
         }
         else {
@@ -60,31 +62,28 @@ int wordscore(char word[])
         if (islower(word[i])){
             word[i] = toupper(word[i]);
         }
-        else { 
-            ;
-        }
     }
-
-    for (int i = 0; i < strlen(word); i++){
-        if (word[i] == 65 || word[i] == 69 || word[i] == 73 || word[i] == 76 || word[i] == 78 || word[i] == 79 || word[i] == 82 || word[i] == 83 || word[i] == 84 || word[i] == 85){
+    int length = strlen(word);
+    for (int i = 0; i < length; i++){
+        if (word[i] == 'A' || word[i] == 'E' || word[i] == 'I' || word[i] == 'L' || word[i] == 'N' || word[i] == 'O' || word[i] == 'R' || word[i] == 'S' || word[i] == 'T' || word[i] == 'U'){
             playerscore += 1;
         }
-        else if (word[i] == 68 || word[i] == 71){
+        else if (word[i] == 'D' || word[i] == 'G'){
             playerscore += 2;
         }
-        else if (word[i] == 66 || word[i] == 67 || word[i] == 77 || word[i] == 80){
+        else if (word[i] == 'B' || word[i] == 'C' || word[i] == 'M' || word[i] == 'P'){
             playerscore += 3;
         }
-        else if (word[i] == 70 || word[i] == 72 || word[i] == 86 || word[i] ==  87 || word[i] == 89){
+        else if (word[i] == 'F' || word[i] == 'H' || word[i] == 'V' || word[i] ==  'W' || word[i] == 'Y'){
             playerscore += 4;
         }
-        else if (word[i] == 75){
+        else if (word[i] == 'K'){
             playerscore += 5;
         }
-        else if (word[i] == 74 || word[i] == 88){
+        else if (word[i] == 'J' || word[i] == 'X'){
             playerscore += 8;
         }
-        else if (word[i] == 81 || word[i] ==  90){
+        else if (word[i] == 'Q' || word[i] ==  'Z'){
             playerscore += 10;
         }
         else {
