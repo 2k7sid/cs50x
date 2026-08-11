@@ -15,9 +15,9 @@ int main(void)
     printf("Enter your text to analyze readbility as per the Coleman-Liau index (Maximum 1000 characters only!): \n");
     fgets(userint, sizeof(userint), stdin);
 
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF){
-        /// discard excess value from input stream.
+    if (strchr(userint, '\n') == NULL) {
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF) { }
     }
     rmenter(userint); /// to remove \n in case not present in overflowed input stream.
 
