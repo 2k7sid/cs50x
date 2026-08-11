@@ -55,7 +55,7 @@ int main(void)
 
     /// reading level calculated via coleman-liau index using: [ index = 0.0588 * L - 0.296 * S - 15.8 ]
     const float L = (((float)lettercount / wordcount)*100);
-    const float S = (((float)wordcount / sentencecount)*100);
+    const float S = (((float)sentencecount / wordcount)*100);
     const int INDEX = (int) round((0.0588*L)-(0.296*S)-(15.80));
 
     if (INDEX < 1){
